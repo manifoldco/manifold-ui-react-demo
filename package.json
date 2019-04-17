@@ -4,10 +4,6 @@
   "private": true,
   "dependencies": {
     "@manifoldco/ui": "0.0.9",
-    "@types/jest": "24.0.11",
-    "@types/node": "11.13.4",
-    "@types/react": "16.8.13",
-    "@types/react-dom": "16.8.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
@@ -30,6 +26,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/jest": "24.0.11",
+    "@types/node": "11.13.4",
+    "@types/react": "16.8.13",
+    "@types/react-dom": "16.8.4",
     "@types/react-router-dom": "^4.3.2"
   }
 }
