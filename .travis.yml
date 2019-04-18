@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - 11.9.0
+cache: npm
+stages:
+  - test
+jobs:
+  include:
+    - stage: test
+      name: '🧹 Run linters'
+      script: npm run lint
+    - stage: test
+      name: '🗜️ Run tests'
+      script: npm run test
+cache: npm
