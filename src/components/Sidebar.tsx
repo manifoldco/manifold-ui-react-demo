@@ -9,7 +9,12 @@ const Nav = styled.nav`
   align-content: start;
   min-width: 250px;
   padding: 2rem;
-  background: #eee;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(240, 240, 240, 1),
+      rgba(240, 240, 240, 0.75)
+    ),
+    url(./taco-pattern.jpg);
 `;
 
 const Heading = styled.h3`
