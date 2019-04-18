@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import LinkButton from "./LinkButton";
 
 const Nav = styled.nav`
   grid-area: sidebar;
@@ -11,10 +12,16 @@ const Nav = styled.nav`
   background: #eee;
 `;
 
+const Heading = styled.h3`
+  margin: 0;
+  font-size: 0.75rem;
+  color: grey;
+  text-transform: uppercase;
+`;
+
 const ServicesList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0;
   display: grid;
   grid-gap: 0.5em;
 `;
@@ -22,21 +29,22 @@ const ServicesList = styled.ul`
 const Sidebar = () => {
   return (
     <Nav>
-      <h3>Services</h3>
+      <Heading>Services</Heading>
       <ServicesList>
         <li>
-          <Link to="/services">🔶 jawsdb-mysql-1</Link>
+          <Link to="/services">jawsdb-mysql-1</Link>
         </li>
         <li>
-          <Link to="/services">️️🔶 messaging</Link>
+          <Link to="/services">️️messaging</Link>
         </li>
         <li>
-          <Link to="/services">🔶 cool resource</Link>
+          <Link to="/services">cool resource</Link>
         </li>
         <li>
-          <Link to="/services">🔶 valence</Link>
+          <Link to="/services">valence</Link>
         </li>
       </ServicesList>
+      <LinkButton to="/"> {"+"} Add a resource</LinkButton>
     </Nav>
   );
 };

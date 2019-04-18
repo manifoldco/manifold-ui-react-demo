@@ -9,7 +9,7 @@ const Main = styled.main`
   }
 `;
 
-const Heading = styled.h1`
+const Heading = styled.h2`
   text-align: center;
   font-size: 1.25rem;
   padding: 1rem 2rem;
