@@ -7,9 +7,6 @@ stages:
 jobs:
   include:
     - stage: test
-      name: '🧹 Run linters'
-      script: npm run lint
-    - stage: test
-      name: '🗜️ Run tests'
-      script: npm run test
+      name: '📦 Build'
+      script: npm run build
 cache: npm
