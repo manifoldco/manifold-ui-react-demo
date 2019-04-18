@@ -9,6 +9,7 @@ const Nav = styled.nav`
   align-content: start;
   min-width: 250px;
   padding: 2rem;
+  background-attachment: fixed;
   background-image: linear-gradient(
       to bottom,
       rgba(240, 240, 240, 1),
