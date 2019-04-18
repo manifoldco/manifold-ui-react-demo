@@ -13,10 +13,11 @@
     "typescript": "3.4.3"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "react-scripts start",
+    "eject": "react-scripts eject",
+    "start": "NODE_ENV=production npx serve -l \"tcp://0.0.0.0:$PORT\" -s build",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
