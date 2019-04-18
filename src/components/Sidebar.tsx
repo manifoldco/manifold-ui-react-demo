@@ -34,6 +34,8 @@ const ServicesList = styled.ul`
 const Sidebar = () => {
   return (
     <Nav>
+      <LinkButton to="/"> {"+"} Add a new service</LinkButton>
+      <br />
       <Heading>Services</Heading>
       <ServicesList>
         <li>
@@ -49,7 +51,6 @@ const Sidebar = () => {
           <Link to="/services">valence</Link>
         </li>
       </ServicesList>
-      <LinkButton to="/"> {"+"} Add a resource</LinkButton>
     </Nav>
   );
 };
