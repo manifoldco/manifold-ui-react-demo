@@ -1,3 +1,9 @@
+# TacoCloud (React)
+
+TacoClould is a React/TypeScript app to demonstrate the usage of [Manifold UI](https://manifold-ui-stage.herokuapp.com/) web components.
+
+***
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
