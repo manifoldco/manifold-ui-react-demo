@@ -28,7 +28,7 @@ const ServicesList = styled.ul`
   list-style: none;
   padding: 0;
   display: grid;
-  grid-gap: 0.5em;
+  grid-gap: 0.75em;
 `;
 
 const Sidebar = () => {
