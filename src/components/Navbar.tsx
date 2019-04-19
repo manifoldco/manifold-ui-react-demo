@@ -8,7 +8,7 @@ const Nav = styled.nav`
   grid-template-areas: "left center right";
   justify-content: space-between;
   align-items: center;
-  background: #ddd;
+  background: ${({ theme }) => theme.color.black10};
   padding: 1rem;
 `;
 
@@ -19,23 +19,27 @@ const Avatar = styled.img`
   object-fit: cover;
 `;
 
-const Brand = styled.div`
+const Brand = styled(Link)`
   display: grid;
   grid-auto-flow: column;
-  grid-gap: 0.5em;
+  grid-gap: 1rem;
   align-items: center;
-  font-size: 1.25rem;
+  font-size: 1em;
+
+  &:hover {
+    text-decoration: none;
+  }
 `;
 
 const Logo = styled.div`
-  display: grid;
   align-content: center;
-  justify-content: center;
-  height: 1.75em;
-  width: 1.75em;
-  padding-left: 0.2em;
-  border-radius: 0.25em;
   background: white;
+  border-radius: 0.25rem;
+  display: grid;
+  height: 1.75em;
+  justify-content: center;
+  padding-left: 0.2em;
+  width: 1.75em;
 `;
 
 const RightNav = styled.div`
@@ -52,10 +56,10 @@ const RightNav = styled.div`
 const Navbar = () => {
   return (
     <Nav>
-      <Brand>
+      <Brand to="/">
         <Logo role="img" aria-label="taco">
           🌮
-        </Logo>{" "}
+        </Logo>
         TacoCloud
       </Brand>
       <Link to="/services">Services</Link>
