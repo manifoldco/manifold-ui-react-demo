@@ -30,7 +30,7 @@ const Discover: React.FunctionComponent = () => {
   }, [clicked]);
 
   if (typeof clicked === 'string') {
-    return <Redirect to={`/new/resource/?product=${clicked}`} />
+    return <Redirect to={`/new/resource/?product=${clicked}`} push={true} />
   }
 
   return (
