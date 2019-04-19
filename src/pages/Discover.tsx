@@ -1,28 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Redirect } from 'react-router-dom';
 import styled from "styled-components";
 
-const Main = styled.main`
-  display: grid;
+import Wrapper from '../components/Wrapper';
 
-  .marketplace {
-    margin: 2rem;
-  }
-`;
 
 const Heading = styled.h2`
   text-align: center;
-  font-size: 1.25rem;
+  font-size: ${({ theme }) => theme.font.up1};
+  font-weight: 700;
   padding: 1rem 2rem;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 2rem;
   border-bottom: 1px solid #ddd;
 `;
 
-const Discover = () => {
+
+const Discover: React.FunctionComponent = () => {
+  const [clicked, setClicked] = useState();
+
+  useEffect(() => {
+    function onClick({ detail }: CustomEvent): void {
+      setClicked(detail.label);
+    }
+
+    document.addEventListener('manifold-serviceCard-click', onClick as EventListener);
+    return () =>
+      document.removeEventListener('manifold-serviceCard-click', onClick as EventListener);
+  }, [clicked]);
+
+  if (typeof clicked === 'string') {
+    return <Redirect to={`/new/resource/?product=${clicked}`} push={true} />
+  }
+
   return (
-    <Main>
+    <>
       <Heading>Add a new service</Heading>
-      <manifold-marketplace class="marketplace" />
-    </Main>
+      <Wrapper>
+        <manifold-marketplace featured="piio" />
+      </Wrapper>
+    </>
   );
 };
 

@@ -2,15 +2,6 @@
   "name": "taco-cloud",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@manifoldco/ui": "0.0.9",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
-    "styled-components": "^4.2.0",
-    "typescript": "3.4.3"
-  },
   "scripts": {
     "build": "react-scripts build",
     "dev": "react-scripts start",
@@ -27,12 +18,25 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "dependencies": {
+    "@manifoldco/icons": "0.0.3",
+    "@manifoldco/ui": "0.0.13",
+    "mini-svg-data-uri": "^1.0.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
+    "styled-components": "^4.2.0",
+    "typescript": "3.4.3"
+  },
   "devDependencies": {
     "@types/jest": "24.0.11",
     "@types/node": "11.13.4",
     "@types/react": "16.8.13",
     "@types/react-dom": "16.8.4",
     "@types/react-router-dom": "^4.3.2",
-    "@types/styled-components": "^4.1.14"
+    "@types/styled-components": "^4.1.14",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "prettier": "^1.17.0"
   }
 }
