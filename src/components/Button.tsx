@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const ButtonStyles = styled.button`
   align-items: center;
@@ -14,15 +14,19 @@ const ButtonStyles = styled.button`
   height: 3rem;
   padding-left: 2rem;
   padding-right: 2rem;
-`
-
+`;
 
 interface ButtonProps {
   onClick: (e: React.SyntheticEvent<HTMLButtonElement>) => void;
 }
 
-const Button: React.FunctionComponent<ButtonProps> = ({ children, ...rest }) => (
-  <ButtonStyles type="button" {...rest}>{children}</ButtonStyles>
-)
+const Button: React.FunctionComponent<ButtonProps> = ({
+  children,
+  ...rest
+}) => (
+  <ButtonStyles type="button" {...rest}>
+    {children}
+  </ButtonStyles>
+);
 
 export default Button;

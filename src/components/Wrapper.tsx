@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Outer = styled.div`
   margin-left: auto;
@@ -13,6 +13,10 @@ const Inner = styled.div`
   padding-right: 1.5rem;
 `;
 
-const Wrapper: React.FunctionComponent = ({ children }) => (<Outer><Inner>{children}</Inner></Outer>)
+const Wrapper: React.FunctionComponent = ({ children }) => (
+  <Outer>
+    <Inner>{children}</Inner>
+  </Outer>
+);
 
 export default Wrapper;

@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { plus } from "@manifoldco/icons";
 import LinkButton from "./LinkButton";
+import Icon from "./Icon";
 
 const Nav = styled.nav`
   grid-area: sidebar;
@@ -35,7 +37,10 @@ const ServicesList = styled.ul`
 const Sidebar = () => {
   return (
     <Nav>
-      <LinkButton to="/"> {"+"} Add a new service</LinkButton>
+      <LinkButton to="/">
+        <Icon icon={plus} marginRight />
+        Add a new service
+      </LinkButton>
       <br />
       <Heading>Services</Heading>
       <ServicesList>
