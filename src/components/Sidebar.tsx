@@ -11,6 +11,7 @@ const Nav = styled.nav`
   align-content: start;
   min-width: 250px;
   padding: 2rem;
+  position: relative;
   background-attachment: fixed;
   background-image: linear-gradient(
       to bottom,
@@ -27,6 +28,11 @@ const Heading = styled.h3`
   text-transform: uppercase;
 `;
 
+const Scroll = styled.div`
+  position: sticky;
+  top: 1.5rem;
+`;
+
 const ServicesList = styled.ul`
   list-style: none;
   padding: 0;
@@ -37,26 +43,28 @@ const ServicesList = styled.ul`
 const Sidebar = () => {
   return (
     <Nav>
-      <LinkButton to="/">
-        <Icon icon={plus} marginRight />
-        Add a new service
-      </LinkButton>
-      <br />
-      <Heading>Services</Heading>
-      <ServicesList>
-        <li>
-          <Link to="/services">jawsdb-mysql-1</Link>
-        </li>
-        <li>
-          <Link to="/services">️️messaging</Link>
-        </li>
-        <li>
-          <Link to="/services">cool resource</Link>
-        </li>
-        <li>
-          <Link to="/services">valence</Link>
-        </li>
-      </ServicesList>
+      <Scroll>
+        <LinkButton to="/">
+          <Icon icon={plus} marginRight />
+          Add a new service
+        </LinkButton>
+        <br />
+        <Heading>Services</Heading>
+        <ServicesList>
+          <li>
+            <Link to="/services">jawsdb-mysql-1</Link>
+          </li>
+          <li>
+            <Link to="/services">️️messaging</Link>
+          </li>
+          <li>
+            <Link to="/services">cool resource</Link>
+          </li>
+          <li>
+            <Link to="/services">valence</Link>
+          </li>
+        </ServicesList>
+      </Scroll>
     </Nav>
   );
 };
