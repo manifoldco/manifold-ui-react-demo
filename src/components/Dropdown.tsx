@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { chevron_down } from '@manifoldco/icons';
+import React from "react";
+import styled from "styled-components";
+import { chevron_down } from "@manifoldco/icons";
 
-import { base64 } from './Icon';
+import { base64 } from "./Icon";
 
 const Wrapper = styled.div`
   position: relative;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
     transform: translateY(-50%);
     width: 1.5rem;
   }
-`
+`;
 
 const Select = styled.select`
   appearance: none;
@@ -38,7 +38,7 @@ const Select = styled.select`
   &:hover {
     border-color: ${({ theme }) => theme.color.blue};
   }
-`
+`;
 
 const Dropdown: React.FunctionComponent = ({ children, ...rest }) => (
   <Wrapper>

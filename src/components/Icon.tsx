@@ -1,5 +1,5 @@
-import React from 'react';
-import svgToMiniDataURI from 'mini-svg-data-uri';
+import React from "react";
+import svgToMiniDataURI from "mini-svg-data-uri";
 
 export function base64(icon: string): string {
   const svg = `<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlnsX="http://www.w3.org/1999/xlink"><path d="${icon}" /></svg>`;
@@ -12,7 +12,12 @@ interface IconProps {
   marginRight?: boolean;
 }
 
-const Icon: React.FunctionComponent<IconProps> = ({ icon, marginLeft, marginRight, ...rest }) => (
+const Icon: React.FunctionComponent<IconProps> = ({
+  icon,
+  marginLeft,
+  marginRight,
+  ...rest
+}) => (
   <svg
     viewBox="0 0 1024 1024"
     xmlns="http://www.w3.org/2000/svg"
@@ -20,8 +25,8 @@ const Icon: React.FunctionComponent<IconProps> = ({ icon, marginLeft, marginRigh
     height="1em"
     width="1em"
     style={{
-      marginLeft: marginLeft ? '0.75em' : undefined,
-      marginRight: marginRight ? '0.75em' : undefined,
+      marginLeft: marginLeft ? "0.625em" : undefined,
+      marginRight: marginRight ? "0.625em" : undefined
     }}
     {...rest}
   >
