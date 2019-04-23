@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "@manifoldco/icons": "0.0.3",
-    "@manifoldco/ui": "0.0.14",
+    "@manifoldco/ui": "0.0.16-alpha",
     "mini-svg-data-uri": "^1.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
