@@ -14,16 +14,16 @@ const Discover: React.FunctionComponent = () => {
 
   useEffect(() => {
     function onClick({ detail }: CustomEvent): void {
-      setClicked(detail.label);
+      setClicked(detail.productLabel);
     }
 
     document.addEventListener(
-      "manifold-serviceCard-click",
+      "manifold-marketplace-click",
       onClick as EventListener
     );
     return () =>
       document.removeEventListener(
-        "manifold-serviceCard-click",
+        "manifold-marketplace-click",
         onClick as EventListener
       );
   }, [clicked]);
@@ -37,7 +37,7 @@ const Discover: React.FunctionComponent = () => {
       <SubNav>Add a new service</SubNav>
       <Wrapper>
         <Marketplace>
-          <manifold-marketplace featured="piio" />
+          <manifold-marketplace featured="piio" linkFormat="/new/resource" />
         </Marketplace>
       </Wrapper>
     </>

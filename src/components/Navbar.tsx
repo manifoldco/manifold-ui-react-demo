@@ -57,8 +57,10 @@ const Navbar = () => {
   return (
     <Nav>
       <Brand to="/">
-        <Logo role="img" aria-label="taco">
-          🌮
+        <Logo>
+          <span role="img" aria-label="taco">
+            🌮
+          </span>
         </Logo>
         TacoCloud
       </Brand>

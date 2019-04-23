@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import NewResource from "./pages/NewResource";
 
 import "./App.css";
-import theme from './lib/theme';
+import theme from "./lib/theme";
 import Sidebar from "./components/Sidebar";
 
 const Container = styled.div`
@@ -37,7 +37,7 @@ class App extends Component {
                   <Route path="/" exact component={Discover} />
                   <Route path="/new/resource" component={NewResource} />
                   <Route
-                    path="/resources/:resourceId/edit"
+                    path="/resources/:resourceId"
                     component={ManageResource}
                   />
                 </main>

@@ -52,16 +52,16 @@ const Sidebar = () => {
         <Heading>Services</Heading>
         <ServicesList>
           <li>
-            <Link to="/services">jawsdb-mysql-1</Link>
+            <Link to="/resources/1">jawsdb-mysql-1</Link>
           </li>
           <li>
-            <Link to="/services">️️messaging</Link>
+            <Link to="/resources/2">️️messaging</Link>
           </li>
           <li>
-            <Link to="/services">cool resource</Link>
+            <Link to="/resources/3">cool resource</Link>
           </li>
           <li>
-            <Link to="/services">valence</Link>
+            <Link to="/resources/4">valence</Link>
           </li>
         </ServicesList>
       </Scroll>
