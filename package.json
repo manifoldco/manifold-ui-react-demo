@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "react-scripts build",
-    "dev": "react-scripts start",
+    "dev": "manifold run -- react-scripts start",
     "eject": "react-scripts eject",
     "start": "NODE_ENV=production npx serve -l \"tcp://0.0.0.0:$PORT\" -s build",
     "test": "react-scripts test"
