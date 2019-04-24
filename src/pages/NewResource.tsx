@@ -142,7 +142,10 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
         <StatusWindow>
           {status === LOADING && (
             <Status>
-              🚀 Provisioning new resource…
+              <span role="img" aria-label="rocket">
+                🚀
+              </span>{" "}
+              Provisioning new resource…
               <br />
               planID: {planID}
               <br />
