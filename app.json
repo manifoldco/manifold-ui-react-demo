@@ -2,7 +2,10 @@
   "name": "manifold-ui-react-demo",
   "description": "",
   "scripts": {},
-  "env": {},
+  "env": {
+    "MANIFOLD_API_TOKEN": {},
+    "MANIFOLD_USER_ID": {}
+  },
   "formation": {},
   "addons": [],
   "buildpacks": [
