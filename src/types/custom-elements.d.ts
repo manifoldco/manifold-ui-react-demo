@@ -11,6 +11,9 @@ declare module JSX {
     "manifold-data-product-logo": StencilIntrinsicElements["manifold-data-product-logo"] & {
       children?: ReactElement;
     };
+    "manifold-data-provision-button": StencilIntrinsicElements["manifold-data-provision-button"] & {
+      children?: ReactElement;
+    };
     "manifold-marketplace": StencilIntrinsicElements["manifold-marketplace"] & {
       children?: ReactElement;
     };
@@ -21,6 +24,9 @@ declare module JSX {
       children?: ReactElement;
     };
     "manifold-resource-details": StencilIntrinsicElements["manifold-resource-details"] & {
+      children?: ReactElement;
+    };
+    "manifold-toast": StencilIntrinsicElements["manifold-toast"] & {
       children?: ReactElement;
     };
   }
