@@ -8,6 +8,7 @@ const ManageResource = ({
     params: { resourceName }
   }
 }: RouteComponentProps<{ resourceName: string }>) => {
+  console.log({ resourceName });
   return (
     <Wrapper>
       <ResourceHeader name={resourceName} />

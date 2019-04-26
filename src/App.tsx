@@ -37,7 +37,7 @@ class App extends Component {
                   <Route path="/" exact component={Discover} />
                   <Route path="/new/resource" component={NewResource} />
                   <Route
-                    path="/resources/:resourceId"
+                    path="/resources/:resourceName"
                     component={ManageResource}
                   />
                 </main>
