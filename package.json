@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "react-scripts build",
+    "build": "npx @manifoldco/cli run -t manifold -p $MANIFOLD_PROJECT -- react-scripts build",
     "dev": "manifold run -- react-scripts start",
     "eject": "react-scripts eject",
     "start": "NODE_ENV=production npx serve -l \"tcp://0.0.0.0:$PORT\" -s build",
