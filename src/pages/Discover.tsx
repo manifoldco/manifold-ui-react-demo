@@ -1,36 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import styled from "styled-components";
 
 import SubNav from "../components/SubNav";
 import Wrapper from "../components/Wrapper";
 
+const EVENT_CLICK = "manifold-marketplace-click";
+
 const Marketplace = styled.div`
   margin-top: 1.5rem;
 `;
 
-const Discover: React.FunctionComponent = () => {
-  const [clicked, setClicked] = useState();
+const Discover: React.FunctionComponent<RouteComponentProps> = ({
+  history
+}) => {
+  const [next, setNext] = useState();
 
   useEffect(() => {
-    function onClick({ detail }: CustomEvent): void {
-      setClicked(detail.productLabel);
-    }
+    const onClick = ({ detail }: CustomEvent) => {
+      setNext(detail.productLabel);
+      history.push(`/new/resource/?product=${detail.productLabel}`);
+    };
 
-    document.addEventListener(
-      "manifold-marketplace-click",
-      onClick as EventListener
-    );
+    document.addEventListener(EVENT_CLICK, onClick as EventListener);
     return () =>
-      document.removeEventListener(
-        "manifold-marketplace-click",
-        onClick as EventListener
-      );
-  }, [clicked]);
-
-  if (typeof clicked === "string") {
-    return <Redirect to={`/new/resource/?product=${clicked}`} push={true} />;
-  }
+      document.removeEventListener(EVENT_CLICK, onClick as EventListener);
+  }, [next, history]);
 
   return (
     <>
@@ -44,4 +39,4 @@ const Discover: React.FunctionComponent = () => {
   );
 };
 
-export default Discover;
+export default withRouter(Discover);

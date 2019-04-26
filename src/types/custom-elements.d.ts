@@ -14,6 +14,9 @@ declare module JSX {
     "manifold-data-provision-button": StencilIntrinsicElements["manifold-data-provision-button"] & {
       children?: ReactElement;
     };
+    "manifold-data-resource-list": StencilIntrinsicElements["manifold-data-resource-list"] & {
+      children?: ReactElement;
+    };
     "manifold-marketplace": StencilIntrinsicElements["manifold-marketplace"] & {
       children?: ReactElement;
     };

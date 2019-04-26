@@ -4,7 +4,9 @@ const theme: DefaultTheme = {
   color: {
     black: "#000",
     black0: "rgba(0, 0, 0, 0)",
-    black7: "rgba(0, 0, 0, 0.07)",
+    black03: "rgba(0, 0, 0, 0.03)",
+    black05: "rgba(0, 0, 0, 0.05)",
+    black07: "rgba(0, 0, 0, 0.07)",
     black10: "rgba(0, 0, 0, 0.1)",
     black20: "rgba(0, 0, 0, 0.2)",
     black30: "rgba(0, 0, 0, 0.3)",

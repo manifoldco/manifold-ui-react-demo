@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Link,
-  Redirect,
-  withRouter,
-  RouteComponentProps
-} from "react-router-dom";
+import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import styled from "styled-components";
 import { arrow_left } from "@manifoldco/icons";
 
@@ -114,10 +109,10 @@ const PlanSelector = styled.div`
 `;
 
 const NewResource: React.FunctionComponent<RouteComponentProps> = ({
+  history,
   location: { search }
 }) => {
   const [errorMessage, setErrorMessage] = useState();
-  const [resourceId, setResourceId] = useState();
   const [status, setStatus] = useState(READY);
   const [successMessage, setSuccessMessage] = useState();
 
@@ -138,10 +133,10 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
     }
 
     const provision = () => setStatus(LOADING);
-    const success = ({ detail: { resourceId, message } }: CustomEvent) => {
+    const success = ({ detail: { resourceName, message } }: CustomEvent) => {
       setStatus(SUCCESS);
-      setResourceId(resourceId);
       setSuccessMessage(message);
+      history.push(`/resources/${resourceName}`);
     };
     const error = ({ detail: { message } }: CustomEvent) => {
       setStatus(ERROR);
@@ -161,14 +156,10 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
       document.removeEventListener(EVENT_SUCCESS, success as EventListener);
       document.removeEventListener(EVENT_ERROR, error as EventListener);
     };
-  }, []);
+  }, [history]);
 
   const params = new URLSearchParams(search);
   const product = params.get("product");
-
-  if (status === SUCCESS && resourceId) {
-    return <Redirect to={`/resources/${resourceId}`} push={true} />;
-  }
 
   return (
     <>

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { plus } from "@manifoldco/icons";
 import LinkButton from "./LinkButton";
 import Icon from "./Icon";
+
+const EVENT_CLICK = "manifold-resourceList-click";
 
 const Nav = styled.nav`
   grid-area: sidebar;
@@ -33,14 +35,47 @@ const Scroll = styled.div`
   top: 1.5rem;
 `;
 
-const ServicesList = styled.ul`
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-gap: 0.75em;
+const ServicesList = styled.div`
+  & manifold-data-resource-list {
+    & ul {
+      list-style: none;
+      margin-top: 1rem;
+      padding: 0;
+    }
+
+    & li {
+      margin: 0;
+      padding: 0;
+    }
+
+    & a {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      transition: background-color 150ms;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        background-color: ${({ theme }) => theme.color.black03};
+      }
+    }
+  }
 `;
 
-const Sidebar = () => {
+const Sidebar: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
+  const [next, setNext] = useState();
+
+  useEffect(() => {
+    const onClick = ({ detail: { resourceName } }: CustomEvent) => {
+      setNext(resourceName);
+      history.push(`/resources/${resourceName}`);
+    };
+
+    document.addEventListener(EVENT_CLICK, onClick as EventListener);
+    return () =>
+      document.removeEventListener(EVENT_CLICK, onClick as EventListener);
+  }, [next, history]);
+
   return (
     <Nav>
       <Scroll>
@@ -51,22 +86,14 @@ const Sidebar = () => {
         <br />
         <Heading>Services</Heading>
         <ServicesList>
-          <li>
-            <Link to="/resources/1">jawsdb-mysql-1</Link>
-          </li>
-          <li>
-            <Link to="/resources/2">️️messaging</Link>
-          </li>
-          <li>
-            <Link to="/resources/3">cool resource</Link>
-          </li>
-          <li>
-            <Link to="/resources/4">valence</Link>
-          </li>
+          <manifold-data-resource-list
+            linkFormat="/resources/:resource"
+            preserveEvent
+          />
         </ServicesList>
       </Scroll>
     </Nav>
   );
 };
 
-export default Sidebar;
+export default withRouter(Sidebar);
