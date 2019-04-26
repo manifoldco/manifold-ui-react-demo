@@ -1,37 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import ResourceHeader from "../components/ResourceHeader";
 import Wrapper from "../components/Wrapper";
 
-const BASE_URL = "https://api.marketplace.stage.manifold.co/v1";
-const RESOURCE_ID = "268ak39rn9czavv1qd9m93t482gmm";
-
-const ManageResource = () => {
-  const [resource, setResource] = useState();
-
-  useEffect(() => {
-    if (!resource) {
-      fetch(`${BASE_URL}/resources/${RESOURCE_ID}`, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("manifold_api_token")}`
-        }
-      })
-        .then(response => response.json())
-        .then(resource => {
-          setResource(resource);
-        });
-    }
-  }, [resource]);
-  console.log("resource", resource);
-  if (!resource) return <div>Loading...</div>;
-
-  const { name } = resource.body;
+const ManageResource = ({
+  match: {
+    params: { resourceName }
+  }
+}: RouteComponentProps<{ resourceName: string }>) => {
   return (
     <Wrapper>
-      <ResourceHeader name={name} />
+      <ResourceHeader name={resourceName} />
       <div>Provisioning</div>
-      <manifold-resource-details resource-id="268ak39rn9czavv1qd9m93t482gmm" />
+      <manifold-resource-details resource-label={resourceName} />
     </Wrapper>
   );
 };
 
-export default ManageResource;
+export default withRouter(ManageResource);
