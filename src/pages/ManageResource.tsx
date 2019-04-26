@@ -11,8 +11,9 @@ const ManageResource = ({
   return (
     <Wrapper>
       <ResourceHeader name={resourceName} />
-      <div>Provisioning</div>
-      <manifold-resource-details resource-label={resourceName} />
+      <manifold-resource-status resource-name={resourceName} />
+      <manifold-resource-credentials resource-name={resourceName} />
+      <manifold-resource-details resource-name={resourceName} />
     </Wrapper>
   );
 };
