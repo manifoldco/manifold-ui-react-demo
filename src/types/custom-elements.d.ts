@@ -26,7 +26,13 @@ declare module JSX {
     "manifold-plan-selector": StencilIntrinsicElements["manifold-plan-selector"] & {
       children?: ReactElement;
     };
+    "manifold-resource-credentials": StencilIntrinsicElements["manifold-resource-credentials"] & {
+      children?: ReactElement;
+    };
     "manifold-resource-details": StencilIntrinsicElements["manifold-resource-details"] & {
+      children?: ReactElement;
+    };
+    "manifold-resource-status": StencilIntrinsicElements["manifold-resource-status"] & {
       children?: ReactElement;
     };
     "manifold-toast": StencilIntrinsicElements["manifold-toast"] & {

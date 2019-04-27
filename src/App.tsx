@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 
 import Discover from "./pages/Discover";
@@ -10,6 +10,7 @@ import NewResource from "./pages/NewResource";
 import "./App.css";
 import theme from "./lib/theme";
 import Sidebar from "./components/Sidebar";
+import EditResource from "./pages/EditResource";
 
 const Container = styled.div`
   display: grid;
@@ -40,11 +41,17 @@ class App extends Component {
                 <Navbar />
                 <Sidebar />
                 <main role="main">
-                  <Route path="/" exact component={Discover} />
-                  <Route path="/new/resource" component={NewResource} />
+                  <Switch>
+                    <Route path="/" exact component={Discover} />
+                    <Route path="/new/resource" component={NewResource} />
+                    <Route
+                      path="/resources/:resourceName"
+                      component={ManageResource}
+                    />
+                  </Switch>
                   <Route
-                    path="/resources/:resourceId"
-                    component={ManageResource}
+                    path="/resources/:resourceName/edit"
+                    component={EditResource}
                   />
                 </main>
               </Container>
