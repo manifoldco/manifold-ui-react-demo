@@ -24,13 +24,19 @@ const Container = styled.div`
   grid-template-rows: min-content auto;
 `;
 
+const env =
+  process.env.MANIFOLD_PROJECT &&
+  process.env.MANIFOLD_PROJECT.indexOf("stage") !== -1
+    ? "stage"
+    : undefined;
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <ThemeProvider theme={theme}>
           <Router>
-            <manifold-connection env="prod">
+            <manifold-connection env={env}>
               <Container>
                 <Navbar />
                 <Sidebar />

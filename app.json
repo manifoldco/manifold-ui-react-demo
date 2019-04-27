@@ -4,7 +4,7 @@
   "scripts": {},
   "env": {
     "MANIFOLD_API_TOKEN": {},
-    "MANIFOLD_USER_ID": {}
+    "MANIFOLD_PROJECT": {}
   },
   "formation": {},
   "addons": [],
