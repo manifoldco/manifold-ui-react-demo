@@ -32,7 +32,11 @@ const Discover: React.FunctionComponent<RouteComponentProps> = ({
       <SubNav>Add a new service</SubNav>
       <Wrapper>
         <Marketplace>
-          <manifold-marketplace featured="piio" linkFormat="/new/resource" />
+          <manifold-marketplace
+            featured="piio"
+            link-format="/new/resource/:product"
+            preserve-event
+          />
         </Marketplace>
       </Wrapper>
     </>

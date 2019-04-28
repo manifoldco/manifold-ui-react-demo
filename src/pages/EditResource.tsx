@@ -80,15 +80,13 @@ export default function EditResource({
             </Link>
           </ModalHeader>
           <ModalBody>
-            TODO: Add plan selector here.
-            {/* <manifold-plan-selector resource-name={resourceName} /> */}
+            <manifold-plan-selector resource-name={resourceName} />
           </ModalBody>
           <Footer>
             <LinkButton to={`/resources/${resourceName}`}>
               <Icon icon={x} marginRight />
               Cancel
             </LinkButton>
-            {/* TODO save changes on click */}
             <LinkButton to={`/resources/${resourceName}`}>
               <Icon icon={check} marginRight />
               Save Changes

@@ -87,8 +87,8 @@ const Sidebar: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
         <Heading>Services</Heading>
         <ServicesList>
           <manifold-data-resource-list
-            linkFormat="/resources/:resource"
-            preserveEvent
+            link-format="/resources/:resource"
+            preserve-event
           />
         </ServicesList>
       </Scroll>

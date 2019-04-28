@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, withRouter, RouteComponentProps } from "react-router-dom";
 import styled from "styled-components";
-import { arrow_left } from "@manifoldco/icons";
+import { arrow_left, briefcase } from "@manifoldco/icons";
 
 import Icon from "../components/Icon";
 import SubNav from "../components/SubNav";
@@ -30,6 +30,7 @@ const Deets = styled.section`
 const Form = styled.form<{ status: string }>`
   padding-left: calc(33.333% + 1.5rem);
   padding-bottom: 3rem;
+  margin-top: 3rem;
 
   & manifold-data-provision-button {
     display: grid;
@@ -105,7 +106,19 @@ const Label = styled.label`
 `;
 
 const PlanSelector = styled.div`
+  background-color: rgba(0, 0, 0, 0.03);
   padding-bottom: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 2rem;
+
+  & h3 {
+    align-items: center;
+    display: flex;
+    font-size: ${({ theme }) => theme.font.u2};
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
 `;
 
 const NewResource: React.FunctionComponent<RouteComponentProps> = ({
@@ -178,11 +191,16 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
         <Deets>
           <manifold-product hide-cta product-label={product} />
         </Deets>
-        <PlanSelector>
-          <manifold-plan-selector hide-cta product-label={product} />
-        </PlanSelector>
+      </Wrapper>
+      <PlanSelector>
+        <h3>
+          <Icon icon={briefcase} marginRight /> Select your plan & options
+        </h3>
+        <manifold-plan-selector hide-cta product-label={product} />
         <Form status={status} onSubmit={e => e.preventDefault()}>
-          <Label htmlFor="provision-resource">Resource Name</Label>
+          <Label htmlFor="provision-resource">
+            Name your resource (e.g: database-stage)
+          </Label>
           <manifold-data-provision-button
             product-label={product}
             inputId="provision-resource"
@@ -202,7 +220,7 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
             </manifold-toast>
           )}
         </Form>
-      </Wrapper>
+      </PlanSelector>
     </>
   );
 };
