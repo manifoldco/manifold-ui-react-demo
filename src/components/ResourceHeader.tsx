@@ -36,12 +36,12 @@ const ResourceHeader: React.FunctionComponent<ResourceHeaderProps> = ({
 }) => (
   <Header>
     <Logo>
-      <manifold-data-product-logo product-label="degraffdb-generators-stage" />
+      <manifold-data-product-logo resource-name={name} />
     </Logo>
     <div>
       <Name>{name}</Name>
       <ProductName>
-        <manifold-data-product-name product-label="degraffdb-generators-stage" />
+        <manifold-data-product-name resource-name={name} />
       </ProductName>
     </div>
     <button>SSO</button>
