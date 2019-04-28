@@ -138,7 +138,7 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
         "manifold-data-provision-button"
       );
       if (!provisionButton) return;
-      provisionButton.features = features;
+      if (features) provisionButton.features = features;
       provisionButton.planId = planId;
       provisionButton.regionId = regionId;
       if (process.env.REACT_APP_MANIFOLD_USER_ID)

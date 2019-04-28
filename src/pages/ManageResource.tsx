@@ -1,8 +1,15 @@
 import React from "react";
+import styled from "styled-components";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import ResourceHeader from "../components/ResourceHeader";
 import Wrapper from "../components/Wrapper";
 import LinkButton from "../components/LinkButton";
+
+const Edit = styled.div`
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`;
 
 const ManageResource = ({
   match: {
@@ -12,11 +19,10 @@ const ManageResource = ({
   return (
     <Wrapper>
       <ResourceHeader name={resourceName} />
-      <manifold-resource-status resource-name={resourceName} />
-      <manifold-resource-credentials resource-name={resourceName} />
-      <div>
+      <Edit>
         <LinkButton to={`${resourceName}/edit`}>Edit</LinkButton>
-      </div>
+      </Edit>
+      <manifold-resource-credentials resource-name={resourceName} />
     </Wrapper>
   );
 };
