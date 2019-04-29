@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { RouteComponentProps, Link } from "react-router-dom";
 import LinkButton from "../components/LinkButton";
 import Icon from "../components/Icon";
 import { x, check } from "@manifoldco/icons";
 
+// Events
+const EVENT_CHANGE = "manifold-planSelector-change";
+const EVENT_SUCCESS = "manifold-manageButton-success";
+const EVENT_ERROR = "manifold-manageButton-error";
+
+// 💅
 const ModalBackground = styled(Link)`
   position: fixed;
   top: 0;
@@ -61,6 +67,30 @@ const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+
+  & manifold-data-manage-button button {
+    background: white;
+    border-radius: 0.25rem;
+    align-items: center;
+    border: 1px solid ${({ theme }) => theme.color.black20};
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0);
+    color: ${({ theme }) => theme.color.black50};
+    display: flex;
+    font-size: 1em;
+    padding: 0.75em 1em;
+    text-align: center;
+    transition: box-shadow 100ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      background: #f8f8f8;
+    }
+  }
 `;
 
 export default function EditResource({
@@ -68,6 +98,38 @@ export default function EditResource({
     params: { resourceName }
   }
 }: RouteComponentProps<{ resourceName: string }>) {
+  const [errorMessage, setErrorMessage] = useState();
+  const [successMessage, setSuccessMessage] = useState();
+
+  // Plan update
+  useEffect(() => {
+    function change({ detail: { planId, features } }: CustomEvent): void {
+      const manageButton = document.querySelector(
+        "manifold-data-manage-button"
+      );
+      if (!manageButton) return;
+      if (features) manageButton.features = features;
+      manageButton.planId = planId;
+    }
+
+    const success = ({ detail: { resourceName, message } }: CustomEvent) => {
+      setSuccessMessage(message);
+    };
+    const error = ({ detail: { message } }: CustomEvent) => {
+      setErrorMessage(message);
+    };
+
+    document.addEventListener(EVENT_CHANGE, change as EventListener);
+    document.addEventListener(EVENT_SUCCESS, success as EventListener);
+    document.addEventListener(EVENT_ERROR, error as EventListener);
+
+    return () => {
+      document.removeEventListener(EVENT_CHANGE, change as EventListener);
+      document.removeEventListener(EVENT_SUCCESS, success as EventListener);
+      document.removeEventListener(EVENT_ERROR, error as EventListener);
+    };
+  }, []);
+
   return (
     <>
       <ModalBackground to={`/resources/${resourceName}`} />
@@ -80,19 +142,25 @@ export default function EditResource({
             </Link>
           </ModalHeader>
           <ModalBody>
-            TODO: Add plan selector here.
-            {/* <manifold-plan-selector resource-name={resourceName} /> */}
+            <manifold-plan-selector resource-name={resourceName} hide-cta />
+            {successMessage && (
+              <manifold-toast alert-type="success">
+                {successMessage}
+              </manifold-toast>
+            )}
+            {errorMessage && (
+              <manifold-toast alert-type="error">{errorMessage}</manifold-toast>
+            )}
           </ModalBody>
           <Footer>
             <LinkButton to={`/resources/${resourceName}`}>
               <Icon icon={x} marginRight />
               Cancel
             </LinkButton>
-            {/* TODO save changes on click */}
-            <LinkButton to={`/resources/${resourceName}`}>
+            <manifold-data-manage-button resource-name={resourceName}>
               <Icon icon={check} marginRight />
               Save Changes
-            </LinkButton>
+            </manifold-data-manage-button>
           </Footer>
         </Modal>
       </ModalWrapper>

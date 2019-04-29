@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const Header = styled.header`
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-gap: 1.5rem;
   align-items: center;
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: 4rem auto min-content;
+  padding-top: 1.5rem;
 `;
 
 const Logo = styled.div`
@@ -27,6 +28,11 @@ const ProductName = styled.h3`
   margin: 0;
 `;
 
+const Status = styled.div`
+  margin-top: 0.25rem;
+  margin-left: -0.25rem;
+`;
+
 interface ResourceHeaderProps {
   name: string;
 }
@@ -36,13 +42,16 @@ const ResourceHeader: React.FunctionComponent<ResourceHeaderProps> = ({
 }) => (
   <Header>
     <Logo>
-      <manifold-data-product-logo product-label="degraffdb-generators-stage" />
+      <manifold-data-product-logo resource-name={name} />
     </Logo>
     <div>
       <Name>{name}</Name>
       <ProductName>
-        <manifold-data-product-name product-label="degraffdb-generators-stage" />
+        <manifold-data-product-name resource-name={name} />
       </ProductName>
+      <Status>
+        <manifold-resource-status resource-name={name} />
+      </Status>
     </div>
     <button>SSO</button>
   </Header>

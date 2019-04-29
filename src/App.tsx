@@ -25,10 +25,7 @@ const Container = styled.div`
 `;
 
 const env =
-  process.env.MANIFOLD_PROJECT &&
-  process.env.MANIFOLD_PROJECT.indexOf("stage") !== -1
-    ? "stage"
-    : undefined;
+  process.env.REACT_APP_MANIFOLD_ENV === "stage" ? "stage" : undefined;
 
 class App extends Component {
   render() {
