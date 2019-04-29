@@ -5,6 +5,8 @@ import { plus } from "@manifoldco/icons";
 import LinkButton from "./LinkButton";
 import Icon from "./Icon";
 
+import tacoPattern from "../taco-pattern.jpg";
+
 const EVENT_CLICK = "manifold-resourceList-click";
 
 const Nav = styled.nav`
@@ -17,10 +19,10 @@ const Nav = styled.nav`
   background-attachment: fixed;
   background-image: linear-gradient(
       to bottom,
-      rgba(240, 240, 240, 1),
-      rgba(240, 240, 240, 0.75)
+      rgba(245, 245, 245, 1),
+      rgba(245, 245, 245, 0.75)
     ),
-    url(./taco-pattern.jpg);
+    url(${tacoPattern});
 `;
 
 const Heading = styled.h3`
