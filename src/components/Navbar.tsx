@@ -8,15 +8,9 @@ const Nav = styled.nav`
   grid-template-areas: "left center right";
   justify-content: space-between;
   align-items: center;
-  background: ${({ theme }) => theme.color.black10};
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-`;
-
-const Avatar = styled.img`
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-  object-fit: cover;
 `;
 
 const Brand = styled(Link)`
@@ -33,24 +27,13 @@ const Brand = styled(Link)`
 
 const Logo = styled.div`
   align-content: center;
-  background: white;
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
   display: grid;
   height: 1.75em;
   justify-content: center;
   padding-left: 0.2em;
   width: 1.75em;
-`;
-
-const RightNav = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 1rem;
-  align-items: center;
-
-  a:hover {
-    text-decoration: none;
-  }
 `;
 
 const Navbar = () => {
@@ -65,12 +48,6 @@ const Navbar = () => {
         TacoCloud
       </Brand>
       <Link to="/services">Services</Link>
-      <RightNav>
-        <Link to="/">
-          <Avatar src="https://fillmurray.com/100/150" alt="Bill Murray" />
-        </Link>
-        <Link to="/">⚙︎</Link>
-      </RightNav>
     </Nav>
   );
 };
