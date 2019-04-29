@@ -28,11 +28,6 @@ const ProductName = styled.h3`
   margin: 0;
 `;
 
-const Status = styled.div`
-  margin-top: 0.25rem;
-  margin-left: -0.25rem;
-`;
-
 interface ResourceHeaderProps {
   name: string;
 }
@@ -49,11 +44,7 @@ const ResourceHeader: React.FunctionComponent<ResourceHeaderProps> = ({
       <ProductName>
         <manifold-data-product-name resource-name={name} />
       </ProductName>
-      <Status>
-        <manifold-resource-status resource-name={name} />
-      </Status>
     </div>
-    <button>SSO</button>
   </Header>
 );
 
