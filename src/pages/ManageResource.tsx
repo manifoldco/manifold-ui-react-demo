@@ -13,6 +13,7 @@ const ManageResource = ({
     <Wrapper>
       <ResourceHeader name={resourceName} />
       <manifold-resource-status resource-name={resourceName} />
+      <manifold-resource-details resource-name={resourceName} />
       <manifold-resource-credentials resource-name={resourceName} />
       <div>
         <LinkButton to={`${resourceName}/edit`}>Edit</LinkButton>
