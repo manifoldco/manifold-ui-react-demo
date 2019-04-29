@@ -9,6 +9,8 @@ const Outer = styled.div`
 `;
 
 const Inner = styled.div`
+  display: grid;
+  grid-gap: 1.5rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 `;
