@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import tacoCloudLogo from "../taco-cloud-logo.svg";
 
 const Nav = styled.nav`
   grid-area: navbar;
@@ -17,7 +18,7 @@ const Nav = styled.nav`
 const Brand = styled(Link)`
   display: grid;
   grid-auto-flow: column;
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   align-items: center;
 
   &:hover {
@@ -27,13 +28,13 @@ const Brand = styled(Link)`
 
 const Logo = styled.div`
   align-content: center;
-  background: ${({ theme }) => theme.color.black05};
-  border-radius: 0.25rem;
   display: grid;
   font-size: ${({ theme }) => theme.font.u3};
   height: 1.75em;
-  justify-content: center;
-  width: 1.75em;
+
+  & img {
+    height: 1.75rem;
+  }
 `;
 
 const Navbar = () => {
@@ -41,9 +42,7 @@ const Navbar = () => {
     <Nav>
       <Brand to="/">
         <Logo>
-          <span role="img" aria-label="taco">
-            🌮
-          </span>
+          <img src={tacoCloudLogo} alt="" />
         </Logo>
         TacoCloud
       </Brand>
