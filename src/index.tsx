@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { defineCustomElements } from "@manifoldco/ui/dist/loader";
 import "./index.css";
+import "@manifoldco/ui/dist/manifold.css";
+import "./theme-do.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
