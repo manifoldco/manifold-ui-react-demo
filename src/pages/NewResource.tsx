@@ -125,7 +125,6 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
   history,
   location: { search }
 }) => {
-  const [errorMessage, setErrorMessage] = useState();
   const [status, setStatus] = useState(READY);
   const [successMessage, setSuccessMessage] = useState();
 
@@ -153,7 +152,6 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
     };
     const error = ({ detail: { message } }: CustomEvent) => {
       setStatus(ERROR);
-      setErrorMessage(message);
     };
 
     document.addEventListener(EVENT_INIT, change as EventListener);
