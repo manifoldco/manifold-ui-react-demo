@@ -125,7 +125,6 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
   history,
   location: { search }
 }) => {
-  const [errorMessage, setErrorMessage] = useState();
   const [status, setStatus] = useState(READY);
   const [successMessage, setSuccessMessage] = useState();
 
@@ -153,7 +152,6 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
     };
     const error = ({ detail: { message } }: CustomEvent) => {
       setStatus(ERROR);
-      setErrorMessage(message);
     };
 
     document.addEventListener(EVENT_INIT, change as EventListener);
@@ -212,7 +210,12 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
             <manifold-data-product-name product-label={product} />
           </manifold-data-provision-button>
           {status === ERROR && (
-            <manifold-toast alert-type="error">{errorMessage}</manifold-toast>
+            // error message from the API sucks...
+            <manifold-toast alert-type="error">
+              Sorry, we could not provision a resource with that name. The name
+              must be unique from other resources, and can contain only
+              alphanumeric chararcters (a-Z, 0-9) and dashes (-).
+            </manifold-toast>
           )}
           {status === SUCCESS && (
             <manifold-toast alert-type="success">
