@@ -212,6 +212,7 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
             <manifold-data-product-name product-label={product} />
           </manifold-data-provision-button>
           {status === ERROR && (
+            // error message from the API sucks...
             <manifold-toast alert-type="error">
               Sorry, we could not provision a resource with that name. The name
               must be unique from other resources, and can contain only
