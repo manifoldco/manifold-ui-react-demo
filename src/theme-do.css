@@ -45,8 +45,9 @@
   --manifold-border: 1px solid var(--do-light-gray);
   --manifold-card-background: var(--do-white);
 
+  /* Cards */
+  --manifold-card-border-hover: 1px solid var(--do-gray-lightest);
   /* Hovered Cards */
-  --manifold-card-background-hover: var(--do-lightest-gray);
   --manifold-card-border-hover: 1px solid var(--do-gray);
 
   /* Active Cards */
