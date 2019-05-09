@@ -212,7 +212,11 @@ const NewResource: React.FunctionComponent<RouteComponentProps> = ({
             <manifold-data-product-name product-label={product} />
           </manifold-data-provision-button>
           {status === ERROR && (
-            <manifold-toast alert-type="error">{errorMessage}</manifold-toast>
+            <manifold-toast alert-type="error">
+              Sorry, we could not provision a resource with that name. The name
+              must be unique from other resources, and can contain only
+              alphanumeric chararcters (a-Z, 0-9) and dashes (-).
+            </manifold-toast>
           )}
           {status === SUCCESS && (
             <manifold-toast alert-type="success">
