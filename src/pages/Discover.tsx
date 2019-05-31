@@ -34,7 +34,7 @@ const Discover: React.FunctionComponent<RouteComponentProps> = ({
         <Marketplace>
           <manifold-marketplace
             featured="piio"
-            link-format="/new/resource/:product"
+            product-link-format="/new/resource/?product=:product"
             preserve-event
           />
         </Marketplace>
