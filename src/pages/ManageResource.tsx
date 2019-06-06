@@ -28,16 +28,18 @@ const ManageResource = ({
   return (
     <Wrapper>
       <ResourceHeader name={resourceName} />
-      <manifold-resource-status resource-name={resourceName} />
-      <manifold-resource-details resource-name={resourceName} />
-      <Edit>
-        <LinkButton to={`${resourceName}/edit`}>
-          <Icon icon={edit} marginRight />
-          Edit plan
-        </LinkButton>
-      </Edit>
-      <Divider />
-      <manifold-resource-credentials resource-name={resourceName} />
+      <manifold-resource-container resource-label={resourceName}>
+        <manifold-resource-status />
+        <manifold-resource-details resource-name={resourceName} />
+        <Edit>
+          <LinkButton to={`${resourceName}/edit`}>
+            <Icon icon={edit} marginRight />
+            Edit plan
+          </LinkButton>
+        </Edit>
+        <Divider />
+        <manifold-resource-credentials resource-name={resourceName} />
+      </manifold-resource-container>
     </Wrapper>
   );
 };
