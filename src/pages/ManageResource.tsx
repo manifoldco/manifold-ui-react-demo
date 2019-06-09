@@ -26,9 +26,9 @@ const ManageResource = ({
   }
 }: RouteComponentProps<{ resourceName: string }>) => {
   return (
-    <Wrapper>
-      <ResourceHeader name={resourceName} />
-      <manifold-resource-container resource-label={resourceName}>
+    <manifold-resource-container resource-name={resourceName}>
+      <Wrapper>
+        <ResourceHeader name={resourceName} />
         <manifold-resource-status />
         <manifold-resource-details resource-name={resourceName} />
         <Edit>
@@ -39,8 +39,8 @@ const ManageResource = ({
         </Edit>
         <Divider />
         <manifold-resource-credentials resource-name={resourceName} />
-      </manifold-resource-container>
-    </Wrapper>
+      </Wrapper>
+    </manifold-resource-container>
   );
 };
 
